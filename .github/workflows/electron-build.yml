@@ -1,72 +1,31 @@
-name: Build Windows Electron App
+name: Build/release
 
-on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
-  workflow_dispatch:
+on: push
 
 jobs:
-  build:
-    runs-on: windows-latest
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v1
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
         with:
-          node-version: 18
-          cache: 'npm'
+          node-version: 10
 
-      - name: Show environment info
-        run: |
-          echo "Node version:"
-          node -v
-          echo "NPM version:"
-          npm -v
-          echo "Directory contents:"
-          dir
-          echo "Package.json contents:"
-          type package.json
-
-      - name: Install dependencies
-        run: |
-          npm install
-        env:
-          NODE_OPTIONS: "--max-old-space-size=4096"
-
-      - name: Show installed packages
-        run: |
-          echo "node_modules contents:"
-          dir node_modules
-          echo "Package-lock.json contents:"
-          type package-lock.json
-
-      - name: Build app
-        run: |
-          echo "Starting build process..."
-          npm run build
-        env:
-          CI: false
-          NODE_OPTIONS: "--max-old-space-size=4096"
-
-      - name: Build Electron
-        run: |
-          echo "Starting Electron build..."
-          npm run electron:build:win
-        env:
-          CI: false
-          NODE_OPTIONS: "--max-old-space-size=4096"
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        if: always()
+      - name: Build/release Electron app
+        uses: samuelmeuli/action-electron-builder@v1
         with:
-          name: build-artifacts
-          path: |
-            dist/
-            *.log
+          # GitHub token, automatically provided to the action
+          # (No need to define this secret in the repo settings)
+          github_token: ${{ secrets.github_token }}
+
+          # If the commit is tagged with a version (e.g. "v1.0.0"),
+          # release the app after building
+          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
