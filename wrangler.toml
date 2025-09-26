@@ -1,0 +1,6 @@
+name = 'octo-test'
+main = "worker.js"
+compatibility_date = "2023-09-11"
+
+[site]
+bucket = "./build"
