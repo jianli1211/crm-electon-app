@@ -22,6 +22,7 @@ import { Scrollbar } from "src/components/scrollbar";
 import { customersApi } from "src/api/customers";
 import { useGetFormList } from "src/api-swr/customer";
 import { isValidJSON } from "src/utils/function";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const useForms = () => {
   const [selectedForms, setSelectedForms] = useState([]);
@@ -301,7 +302,7 @@ export const CustomerAssignFormDialog = ({
                 <Stack py={2} direction='column' justifyContent='center' alignItems='center'>
                   <Box
                     component="img"
-                    src="/assets/errors/error-404.png"
+                    src={getAssetPath("/assets/errors/error-404.png")}
                     sx={{
                       p: 4,
                       height: "auto",

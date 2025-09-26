@@ -20,6 +20,7 @@ import { useRouter } from 'src/hooks/use-router';
 import { paths } from 'src/paths';
 import { ChatThreadItem } from '../internal-chat/chat-thread-item';
 import { Iconify } from 'src/components/iconify';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const useInternalChats = () => {
   const dispatch = useDispatch();
@@ -131,7 +132,7 @@ export const OverviewChat = () => {
           >
             <Box
               component="img"
-              src="/assets/errors/error-404.png"
+              src={getAssetPath("/assets/errors/error-404.png")}
               sx={{
                 height: 'auto',
                 maxWidth: 120,

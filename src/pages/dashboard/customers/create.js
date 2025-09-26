@@ -10,6 +10,7 @@ import { CustomerCreate } from 'src/sections/dashboard/customer/customer-create'
 import { useAuth } from 'src/hooks/use-auth';
 import { useRouter } from 'src/hooks/use-router';
 import { paths } from 'src/paths';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const Page = () => {
   usePageView();
@@ -42,7 +43,7 @@ const Page = () => {
             xs={12}
             sm={4}
             sx={{
-              backgroundImage: 'url(/assets/people-talking.png)',
+              backgroundImage: `url(${getAssetPath("/assets/people-talking.png")})`,
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',

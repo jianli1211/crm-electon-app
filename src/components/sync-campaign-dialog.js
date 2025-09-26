@@ -18,6 +18,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import Checkbox from "@mui/material/Checkbox";
 import { toast } from "react-hot-toast";
 import { settingsApi } from "src/api/settings";
+import { getAssetPath } from "src/utils/asset-path";
 
 export const SyncCampaignDialog = ({ open, onClose, filters, customFilters, columnSorting, selectedClients = [] }) => {
   const [selectedProfile, setSelectedProfile] = useState("");
@@ -182,7 +183,7 @@ export const SyncCampaignDialog = ({ open, onClose, filters, customFilters, colu
                 <MenuItem key={profile.id} value={profile.id}>
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <img
-                      src="/assets/call-system/call-voiso.png"
+                      src={getAssetPath("/assets/call-system/call-voiso.png")}
                       alt="Voiso"
                       style={{ width: 20, height: 20 }}
                     />

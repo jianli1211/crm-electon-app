@@ -15,6 +15,7 @@ import { Iconify } from 'src/components/iconify';
 import { MailContainer } from "src/sections/dashboard/mail/mail-container";
 import { SettingSidebar } from "./setting-sidebar";
 import { brandsApi } from "src/api/lead-management/brand";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const useSidebar = () => {
   const smUp = useMediaQuery((theme) => theme.breakpoints.up("sm"));
@@ -232,7 +233,7 @@ export const SettingsAnnouncements = () => {
                 >
                   <Box
                     component="img"
-                    src="/assets/errors/error-404.png"
+                    src={getAssetPath("/assets/errors/error-404.png")}
                     sx={{
                       height: "auto",
                       maxWidth: { xs: 80, sm: 100, md: 120 },

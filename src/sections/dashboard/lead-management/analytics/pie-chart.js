@@ -9,6 +9,7 @@ import { useTheme } from '@mui/material/styles';
 
 import { Chart } from 'src/components/chart';
 import Skeleton from '@mui/material/Skeleton';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const useChartOptions = (data) => {
   const theme = useTheme();
@@ -153,7 +154,7 @@ export const BrandPieChat = ({ data, isLoading }) => {
           >
             <Box
               component="img"
-              src="/assets/errors/error-404.png"
+              src={getAssetPath("/assets/errors/error-404.png")}
               sx={{
                 height: 'auto',
                 maxWidth: 120,

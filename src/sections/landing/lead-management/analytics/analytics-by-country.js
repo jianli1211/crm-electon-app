@@ -9,16 +9,17 @@ import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
 import { AnalyticsWorldMap } from './analytics-world-map';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const flagMap = {
-  au: '/assets/flags/flag-au.svg',
-  ca: '/assets/flags/flag-ca.svg',
-  de: '/assets/flags/flag-de.svg',
-  es: '/assets/flags/flag-es.svg',
-  in: '/assets/flags/flag-in.svg',
-  ru: '/assets/flags/flag-ru.svg',
-  uk: '/assets/flags/flag-uk.svg',
-  us: '/assets/flags/flag-us.svg'
+  au: getAssetPath('/assets/flags/flag-au.svg'),
+  ca: getAssetPath('/assets/flags/flag-ca.svg'),
+  de: getAssetPath('/assets/flags/flag-de.svg'),
+  es: getAssetPath('/assets/flags/flag-es.svg'),
+  in: getAssetPath('/assets/flags/flag-in.svg'),
+  ru: getAssetPath('/assets/flags/flag-ru.svg'),
+  uk: getAssetPath('/assets/flags/flag-uk.svg'),
+  us: getAssetPath('/assets/flags/flag-us.svg')
 };
 
 export const LandingAnalyticsCountry = (props) => {

@@ -18,6 +18,7 @@ import { brandsApi } from "src/api/lead-management/brand";
 import { Iconify } from "src/components/iconify";
 import { WhatsAppSettingsForm } from "./whatsapp-settings-form";
 import { WhatsAppTemplates } from "./whatsapp-templates";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const useSidebar = () => {
   const mdUp = useMediaQuery((theme) => theme.breakpoints.up("md"));
@@ -201,7 +202,7 @@ export const SettingsWhatsApp = () => {
                     >
                       <Box
                         component="img"
-                        src="/assets/errors/error-404.png"
+                        src={getAssetPath("/assets/errors/error-404.png")}
                         sx={{
                           height: "auto",
                           maxWidth: 120,

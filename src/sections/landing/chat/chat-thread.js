@@ -13,10 +13,11 @@ import { thunks } from 'src/thunks/chat';
 
 import { ChatMessageAdd } from './chat-message-add';
 import { ChatMessages } from './chat-messages';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const messages = [{
   author: {
-    avatar: "/assets/avatars/avatar-miron-vitold.png",
+    avatar: getAssetPath("/assets/avatars/avatar-miron-vitold.png"),
     isUser: false,
     name: "Miron Vitold"
   },
@@ -30,7 +31,7 @@ const messages = [{
   }
 }, {
   author: {
-    avatar: "/assets/avatars/avatar-anika-visser.png",
+    avatar: getAssetPath("/assets/avatars/avatar-anika-visser.png"),
     isUser: true,
     name: "Me"
   },

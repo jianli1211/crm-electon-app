@@ -11,6 +11,7 @@ import { toast } from 'react-hot-toast';
 
 import { SeverityPill } from "src/components/severity-pill";
 import { recordApi } from 'src/api/payment_audit/record';
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const AlertIssue = ({ recordId }) => {
   const [issues, setIssues] = useState([]);
@@ -117,7 +118,7 @@ export const AlertIssue = ({ recordId }) => {
               >
                 <Box
                   component="img"
-                  src="/assets/errors/error-404.png"
+                  src={getAssetPath("/assets/errors/error-404.png")}
                   sx={{
                     height: 'auto',
                     maxWidth: 120,

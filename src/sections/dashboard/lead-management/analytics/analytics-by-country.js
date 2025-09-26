@@ -17,6 +17,7 @@ import { Scrollbar } from "src/components/scrollbar";
 import { TableSkeleton } from "src/components/table-skeleton";
 import { countries } from "src/utils/constant";
 import { useAuth } from "src/hooks/use-auth";
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const AnalyticsByCounty = ({
   data,
@@ -82,7 +83,7 @@ export const AnalyticsByCounty = ({
         >
           <Box
             component="img"
-            src="/assets/errors/error-404.png"
+            src={getAssetPath("/assets/errors/error-404.png")}
             sx={{
               height: "auto",
               maxWidth: 120,

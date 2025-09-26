@@ -15,6 +15,7 @@ import { settingsApi } from "src/api/settings";
 import { AccountShowModal } from "./account-show-modal";
 import { EditAccountModal } from "./edit-account-modal";
 import { getAPIUrl } from "src/config";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const SavingAccountItem = ({
   account,
@@ -237,7 +238,7 @@ export const CustomerAccountsList = ({
       >
         <Box
           component="img"
-          src="/assets/errors/error-404.png"
+          src={getAssetPath("/assets/errors/error-404.png")}
           sx={{
             height: "auto",
             maxWidth: 120,

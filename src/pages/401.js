@@ -8,6 +8,7 @@ import { RouterLink } from 'src/components/router-link';
 import { Seo } from 'src/components/seo';
 import { usePageView } from 'src/hooks/use-page-view';
 import { paths } from 'src/paths';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const Page = () => {
   const mdUp = useMediaQuery((theme) => theme.breakpoints.down('md'));
@@ -37,7 +38,7 @@ const Page = () => {
             <Box
               alt="Not authorized"
               component="img"
-              src="/assets/errors/error-401.png"
+              src={getAssetPath("/assets/errors/error-401.png")}
               sx={{
                 height: 'auto',
                 maxWidth: '100%',

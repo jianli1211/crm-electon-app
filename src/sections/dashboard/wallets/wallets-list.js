@@ -1,6 +1,7 @@
 
 import Grid from "@mui/material/Grid";
 import { WalletItem } from "./wallet-item";
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const walletList = [
   {
@@ -9,7 +10,7 @@ export const walletList = [
     label: "Tron",
     contract: "trx",
     symbol: 'TRXUSD',
-    logo: '/assets/wallets/tron.svg',
+    logo: getAssetPath('/assets/wallets/tron.svg'),
     unit: 'TRX',
   },
   {
@@ -18,7 +19,7 @@ export const walletList = [
     label: "Tether (trc20)",
     contract: "trc20",
     symbol: 'TRXUSDT',
-    logo: '/assets/wallets/tether.svg',
+    logo: getAssetPath('/assets/wallets/tether.svg'),
     unit: 'USDT',
   },
   {
@@ -27,7 +28,7 @@ export const walletList = [
     label: 'Ethereum',
     contract: "eth",
     symbol: 'ETHUSD',
-    logo: '/assets/wallets/eth.svg',
+    logo: getAssetPath('/assets/wallets/eth.svg'),
     unit: 'ETH',
   },
   {
@@ -36,7 +37,7 @@ export const walletList = [
     label: "Tether (erc20)",
     contract: "erc20",
     symbol: 'ETHUSDT',
-    logo: '/assets/wallets/tether.svg',
+    logo: getAssetPath('/assets/wallets/tether.svg'),
     unit: 'USDT',
   },
   {
@@ -45,7 +46,7 @@ export const walletList = [
     label: "BNB",
     contract: "bsc",
     symbol: 'BNBUSD',
-    logo: '/assets/wallets/bnb.svg',
+    logo: getAssetPath('/assets/wallets/bnb.svg'),
     unit: 'BNB',
   },
   {
@@ -54,7 +55,7 @@ export const walletList = [
     label: "Tether (bep20)",
     contract: "bsc20",
     symbol: 'BNBUSDT',
-    logo: '/assets/wallets/tether.svg',
+    logo: getAssetPath('/assets/wallets/tether.svg'),
     unit: 'USDT',
   },
   {
@@ -63,7 +64,7 @@ export const walletList = [
     label: "ETH-USDC",
     contract: "eth",
     symbol: 'ETHUSDC',
-    logo: '/assets/wallets/usdc.svg',
+    logo: getAssetPath('/assets/wallets/usdc.svg'),
     unit: 'USDC',
   },
   {
@@ -72,7 +73,7 @@ export const walletList = [
     label: "BNB-USDC",
     contract: "bsc",
     symbol: 'BNBUSDC',
-    logo: '/assets/wallets/usdc.svg',
+    logo: getAssetPath('/assets/wallets/usdc.svg'),
     unit: 'USDC',
   },
   {
@@ -81,7 +82,7 @@ export const walletList = [
     label: "SOL",
     contract: "sol",
     symbol: 'SOLUSD',
-    logo: '/assets/wallets/solana.svg',
+    logo: getAssetPath('/assets/wallets/solana.svg'),
     unit: 'SOL',
   },
 ]

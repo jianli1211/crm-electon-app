@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const sliderSettings = {
   arrows: false,
@@ -27,7 +28,7 @@ export const OverviewTips = (props) => {
         }}
       >
         <Box sx={{ mb: 6 }}>
-          <img src="/assets/others/next-tip.svg" />
+          <img src={getAssetPath("/assets/others/next-tip.svg")} />
         </Box>
         <Box
           sx={{

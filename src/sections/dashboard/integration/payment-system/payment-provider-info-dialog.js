@@ -12,31 +12,32 @@ import Rating from '@mui/material/Rating';
 import { useSettings } from "src/hooks/use-settings";
 import { PaymentProviderCreateDialog } from './create-provider-dialog';
 import toast from "react-hot-toast";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const NAME_TO_LOGO_LIGHT = {
-  payretailers: "/assets/icons/payment/payretailers.png",
-  pay_pros: "/assets/icons/payment/pay-pros.png",
-  awesomepayments: "/assets/icons/payment/awp.png",
-  fintech_pay: "/assets/icons/payment/fintech-pay.webp",
-  gateway_pay: "/assets/icons/payment/gateway-pay.jpeg",
-  paycashio: "/assets/icons/payment/paycashio-pay.png",
-  sky_chain: "/assets/icons/payment/skychain-pay.jpeg",
-  simple_psp: "/assets/icons/payment/visa-mastercard.png",
-  atlas24: "/assets/icons/payment/visa-mastercard.png",
-  interio: "/assets/icons/payment/visa-mastercard.png",
+  payretailers: getAssetPath("/assets/icons/payment/payretailers.png"),
+  pay_pros: getAssetPath("/assets/icons/payment/pay-pros.png"),
+  awesomepayments: getAssetPath("/assets/icons/payment/awp.png"),
+  fintech_pay: getAssetPath("/assets/icons/payment/fintech-pay.webp"),
+  gateway_pay: getAssetPath("/assets/icons/payment/gateway-pay.jpeg"),
+  paycashio: getAssetPath("/assets/icons/payment/paycashio-pay.png"),
+  sky_chain: getAssetPath("/assets/icons/payment/skychain-pay.jpeg"),
+  simple_psp: getAssetPath("/assets/icons/payment/visa-mastercard.png"),
+  atlas24: getAssetPath("/assets/icons/payment/visa-mastercard.png"),
+  interio: getAssetPath("/assets/icons/payment/visa-mastercard.png"),
 };
 
 const NAME_TO_LOGO_DARK = {
-  payretailers: "/assets/icons/payment/payretailers.png",
-  pay_pros: "/assets/icons/payment/pay-pros.png",
-  awesomepayments: "/assets/icons/payment/awp.png",
-  fintech_pay: "/assets/icons/payment/fintech-pay.webp",
-  gateway_pay: "/assets/icons/payment/gateway-pay.jpeg",
-  paycashio: "/assets/icons/payment/paycashio-pay.png",
-  sky_chain: "/assets/icons/payment/skychain-pay.jpeg",
-  simple_psp: "/assets/icons/payment/visa-mastercard.png",
-  atlas24: "/assets/icons/payment/visa-mastercard.png",
-  interio: "/assets/icons/payment/visa-mastercard.png",
+  payretailers: getAssetPath("/assets/icons/payment/payretailers.png"),
+  pay_pros: getAssetPath("/assets/icons/payment/pay-pros.png"),
+  awesomepayments: getAssetPath("/assets/icons/payment/awp.png"),
+  fintech_pay: getAssetPath("/assets/icons/payment/fintech-pay.webp"),
+  gateway_pay: getAssetPath("/assets/icons/payment/gateway-pay.jpeg"),
+  paycashio: getAssetPath("/assets/icons/payment/paycashio-pay.png"),
+  sky_chain: getAssetPath("/assets/icons/payment/skychain-pay.jpeg"),
+  simple_psp: getAssetPath("/assets/icons/payment/visa-mastercard.png"),
+  atlas24: getAssetPath("/assets/icons/payment/visa-mastercard.png"),
+  interio: getAssetPath("/assets/icons/payment/visa-mastercard.png"),
 };
 
 

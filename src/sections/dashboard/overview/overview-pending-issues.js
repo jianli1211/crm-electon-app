@@ -13,6 +13,7 @@ import { customersApi } from 'src/api/customers';
 import { paths } from 'src/paths';
 import { useRouter } from 'src/hooks/use-router';
 import { Iconify } from 'src/components/iconify';
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const OverviewPendingIssues = () => {
   const [amount, setAmount] = useState(0);
@@ -43,7 +44,7 @@ export const OverviewPendingIssues = () => {
       >
         <div>
           <img
-            src="/assets/iconly/iconly-glass-info.svg"
+            src={getAssetPath("/assets/iconly/iconly-glass-info.svg")}
             width={48}
           />
         </div>

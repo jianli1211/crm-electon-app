@@ -6,35 +6,36 @@ import Tooltip from '@mui/material/Tooltip';
 import { usePopover } from 'src/hooks/use-popover';
 
 import { LanguagePopover } from './language-popover';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const languageOptions = {
   en: {
-    icon: '/assets/flags/flag-uk.png',
+    icon: getAssetPath('/assets/flags/flag-uk.png'),
     label: 'English',
     code: 'UK',
   },
   de: {
-    icon: '/assets/flags/flag-de.png',
+    icon: getAssetPath('/assets/flags/flag-de.png'),
     label: 'German',
     code: 'DE',
   },
   es: {
-    icon: '/assets/flags/flag-es.png',
+    icon: getAssetPath('/assets/flags/flag-es.png'),
     label: 'Spanish',
     code: 'ES'
   },
   it: {
-    icon: '/assets/flags/flag-it.png',
+    icon: getAssetPath('/assets/flags/flag-it.png'),
     label: 'Italian',
     code: 'IT'
   },
   ru: {
-    icon: '/assets/flags/flag-ru.png',
+    icon: getAssetPath('/assets/flags/flag-ru.png'),
     label: 'Russian',
     code: 'RU'
   },
   nl: {
-    icon: '/assets/flags/flag-nl.png',
+    icon: getAssetPath('/assets/flags/flag-nl.png'),
     label: 'Dutch',
     code: 'NL'
   },

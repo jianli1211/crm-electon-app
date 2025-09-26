@@ -18,20 +18,21 @@ import MenuItem from '@mui/material/MenuItem';
 import { integrationApi } from "src/api/integration";
 import { GameStudioProviderInfoDialog } from './game-studio-provider-info-dialog';
 import { useInternalBrands } from 'src/hooks/custom/use-brand';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const getProviderLogo = (provider) => {
   const logoMap = {
-    booming_games: "/assets/icons/gaming/booming_games.jpg",
-    evolution: "/assets/icons/gaming/evolution.png",
-    netent: "/assets/icons/gaming/netent.png",
-    pragmatic_play: "/assets/icons/gaming/pragmatic_play.png",
-    microgaming: "/assets/icons/gaming/microgaming.png",
-    playtech: "/assets/icons/gaming/playtech.png",
-    redtiger: "/assets/icons/gaming/redtiger.png",
-    bigtime: "/assets/icons/gaming/bigtime.png",
-    nolimit: "/assets/icons/gaming/nolimit.png",
-    relax: "/assets/icons/gaming/relax.png",
-    hacksaw: "/assets/icons/gaming/hacksaw.png",
+    booming_games: getAssetPath("/assets/icons/gaming/booming_games.jpg"),
+    evolution: getAssetPath("/assets/icons/gaming/evolution.png"),
+    netent: getAssetPath("/assets/icons/gaming/netent.png"),
+    pragmatic_play: getAssetPath("/assets/icons/gaming/pragmatic_play.png"),
+    microgaming: getAssetPath("/assets/icons/gaming/microgaming.png"),
+    playtech: getAssetPath("/assets/icons/gaming/playtech.png"),
+    redtiger: getAssetPath("/assets/icons/gaming/redtiger.png"),
+    bigtime: getAssetPath("/assets/icons/gaming/bigtime.png"),
+    nolimit: getAssetPath("/assets/icons/gaming/nolimit.png"),
+    relax: getAssetPath("/assets/icons/gaming/relax.png"),
+    hacksaw: getAssetPath("/assets/icons/gaming/hacksaw.png"),
   };
   
   return logoMap[provider.type] || null;

@@ -19,12 +19,13 @@ import Typography from "@mui/material/Typography";
 import CustomModal from "src/components/customize/custom-modal";
 import { settingsApi } from "src/api/settings";
 import { TableNoData } from "../../table-empty";
+import { getAssetPath } from "src/utils/asset-path";
 
 const tokenToImg = {
-  Tron: "/assets/logos/tron-logo.svg",
-  Tether: "/assets/logos/tether-logo.svg",
-  Ethereum: "/assets/logos/ethereum-logo.svg",
-  Bitcoin: "/assets/logos/bitcoin-logo.svg",
+  Tron: getAssetPath("/assets/logos/tron-logo.svg"),
+  Tether: getAssetPath("/assets/logos/tether-logo.svg"),
+  Ethereum: getAssetPath("/assets/logos/ethereum-logo.svg"),
+  Bitcoin: getAssetPath("/assets/logos/bitcoin-logo.svg"),
 };
 
 const validationSchema = Yup.object({

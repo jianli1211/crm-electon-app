@@ -25,6 +25,7 @@ import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from "./scrollbar";
 import { copyToClipboard } from "src/utils/copy-to-clipboard";
 import { userApi } from "src/api/user";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const validationSchema = yup.object({
   name: yup.string().required("Filter name is required filed"),
@@ -277,7 +278,7 @@ export const FilterModal = ({
               >
                 <Box
                   component="img"
-                  src="/assets/errors/error-404.png"
+                  src={getAssetPath("/assets/errors/error-404.png")}
                   sx={{
                     height: "auto",
                     maxWidth: 100,
@@ -386,6 +387,7 @@ export const FilterModal = ({
         }}
         open={importFilter}
       >
+
         <form onSubmit={handleFilterSubmit(onFilterSubmit)}>
           <Stack direction="column" gap={1}>
             <Typography

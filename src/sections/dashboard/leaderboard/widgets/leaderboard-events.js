@@ -10,6 +10,7 @@ import { Scrollbar } from "src/components/scrollbar";
 import { useSettings } from "src/hooks/use-settings";
 import { TableNoData } from "src/components/table-empty";
 import { useCssVars } from "src/layouts/dashboard/vertical-layout/side-nav";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const EventCard = memo(({ event, isFirst, isNewEvent, cssVars, paletteMode }) => (
   <Stack
@@ -58,7 +59,7 @@ export const LeaderboardEvents = ({
     if (!event) return null;
 
     const textToSpeech = `User ${event.agent_first_name} ${event.agent_last_name} deposit ${event.amount} in`;
-    const defaultSound = "/assets/sounds/event.wav";
+    const defaultSound = getAssetPath(getAssetPath("/assets/sounds/event.wav"));
     const soundUrl = leaderSound
       ? leaderSound.includes("http")
         ? leaderSound

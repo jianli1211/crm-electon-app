@@ -24,6 +24,7 @@ import { CustomerPostEdit } from "./customer-post-edit";
 import { DeleteModal } from "src/components/customize/delete-modal";
 import { customersApi } from "src/api/customers";
 import { useMounted } from "src/hooks/use-mounted";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const validationSchema = yup.object({
   comment: yup.string().required("Comment is a required field"),
@@ -196,7 +197,7 @@ export const CustomerPosts = ({ customerId }) => {
           >
             <Box
               component="img"
-              src="/assets/errors/error-404.png"
+              src={getAssetPath("/assets/errors/error-404.png")}
               sx={{
                 height: "auto",
                 maxWidth: 120,

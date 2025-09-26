@@ -35,6 +35,7 @@ import { useAuth } from "src/hooks/use-auth";
 import { useMounted } from "src/hooks/use-mounted";
 import { useSettings } from "src/hooks/use-settings";
 import { Iconify } from "src/components/iconify";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const useCompanyToken = () => {
   const isMounted = useMounted();
@@ -924,7 +925,7 @@ export const SettingsPlatform = () => {
                               />
                             ) : user?.affiliate ? (
                               <img 
-                                src="/assets/logos/logo-link.svg" 
+                                src={getAssetPath("/assets/logos/logo-link.svg")} 
                                 width={60} 
                                 height={60}
                               />

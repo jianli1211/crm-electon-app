@@ -11,35 +11,36 @@ import Stack from "@mui/material/Stack";
 import { useSettings } from "src/hooks/use-settings";
 import { CreateProfileDialog } from "src/sections/dashboard/settings/call-system/create-profile-dialog";
 import toast from "react-hot-toast";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const NAME_TO_LOGO_LIGHT = {
-  "cyprus bpx": "/assets/call-system/call-pbx.png",
-  coperato: "/assets/call-system/call-coperato.png",
-  nuvei: "/assets/call-system/call-nuvei.png",
-  perfectMoney: "/assets/call-system/call-perfect-money.png",
-  twilio: "/assets/call-system/call-twilio.png",
-  voiso: "/assets/call-system/call-voiso.png",
-  squaretalk: "/assets/call-system/call-squaretalk.png",
-  commpeak: "/assets/call-system/call-commpeak.png",
-  mmdsmart: "/assets/call-system/call-mmdsmart.svg",
-  "prime voip": "/assets/call-system/call-prime-light.png",
-  voicespin: "/assets/call-system/call-voicespin.svg",
-  didglobal: "/assets/call-system/call-didglobal.jpg",
+  "cyprus bpx": getAssetPath("/assets/call-system/call-pbx.png"),
+  coperato: getAssetPath("/assets/call-system/call-coperato.png"),
+  nuvei: getAssetPath("/assets/call-system/call-nuvei.png"),
+  perfectMoney: getAssetPath("/assets/call-system/call-perfect-money.png"),
+  twilio: getAssetPath("/assets/call-system/call-twilio.png"),
+  voiso: getAssetPath("/assets/call-system/call-voiso.png"),
+  squaretalk: getAssetPath("/assets/call-system/call-squaretalk.png"),
+  commpeak: getAssetPath("/assets/call-system/call-commpeak.png"),
+  mmdsmart: getAssetPath("/assets/call-system/call-mmdsmart.svg"),
+  "prime voip": getAssetPath("/assets/call-system/call-prime-light.png"),
+  voicespin: getAssetPath("/assets/call-system/call-voicespin.svg"),
+  didglobal: getAssetPath("/assets/call-system/call-didglobal.jpg"),
 };
 
 const NAME_TO_LOGO_DARK = {
-  "cyprus bpx": "/assets/call-system/call-pbx.png",
-  coperato: "/assets/call-system/call-coperato.png",
-  nuvei: "/assets/call-system/call-nuvei.png",
-  perfectMoney: "/assets/call-system/call-perfect-money.png",
-  twilio: "/assets/call-system/call-twilio.png",
-  voiso: "/assets/call-system/call-voiso.png",
-  squaretalk: "/assets/call-system/call-squaretalk.png",
-  commpeak: "/assets/call-system/call-commpeak.png",
-  mmdsmart: "/assets/call-system/call-mmdsmart-dark.webp",
-  "prime voip": "/assets/call-system/call-prime.png",
-  voicespin: "/assets/call-system/call-voicespin-light.jpg",
-  didglobal: "/assets/call-system/call-didglobal.jpg",
+  "cyprus bpx": getAssetPath("/assets/call-system/call-pbx.png"),
+  coperato: getAssetPath("/assets/call-system/call-coperato.png"),
+  nuvei: getAssetPath("/assets/call-system/call-nuvei.png"),
+  perfectMoney: getAssetPath("/assets/call-system/call-perfect-money.png"),
+  twilio: getAssetPath("/assets/call-system/call-twilio.png"),
+  voiso: getAssetPath("/assets/call-system/call-voiso.png"),
+  squaretalk: getAssetPath("/assets/call-system/call-squaretalk.png"),
+  commpeak: getAssetPath("/assets/call-system/call-commpeak.png"),
+  mmdsmart: getAssetPath("/assets/call-system/call-mmdsmart-dark.webp"),
+  "prime voip": getAssetPath("/assets/call-system/call-prime.png"),
+  voicespin: getAssetPath("/assets/call-system/call-voicespin-light.jpg"),
+  didglobal: getAssetPath("/assets/call-system/call-didglobal.jpg"),
 };
 
 const PROVIDER_DETAILS = {

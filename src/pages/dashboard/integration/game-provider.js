@@ -25,12 +25,13 @@ import { DeleteModal } from "src/components/customize/delete-modal";
 import { Iconify } from 'src/components/iconify';
 import { integrationApi } from 'src/api/integration';
 import { GameProviderSettings } from "src/sections/dashboard/integration/game-studios/game-provider-settings";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const NAME_TO_LOGO = {
-  booming_games: "/assets/icons/gaming/booming_games.jpg",
-  evolution: "/assets/icons/gaming/evolution.png",
-  netent: "/assets/icons/gaming/netent.png",
-  pragmatic_play: "/assets/icons/gaming/pragmatic_play.png",
+  booming_games: getAssetPath("/assets/icons/gaming/booming_games.jpg"),
+  evolution: getAssetPath("/assets/icons/gaming/evolution.png"),
+  netent: getAssetPath("/assets/icons/gaming/netent.png"),
+  pragmatic_play: getAssetPath("/assets/icons/gaming/pragmatic_play.png"),
 };
 
 const useGameProvider = (id) => {

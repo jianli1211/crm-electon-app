@@ -13,11 +13,12 @@ import { ChatMessageAdd } from "../chat/chat-message-add";
 import { ChatMessages } from "../chat/chat-messages";
 import { SUPPORTCHATS } from "src/api/mock/_support_chats";
 import { ChatThreadToolbar } from "../support-chats/chat-thread-toolbar";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const emailMessages = [
   {
     author: {
-      avatar: "/assets/avatars/avatar-miron-vitold.png",
+      avatar: getAssetPath("/assets/avatars/avatar-miron-vitold.png"),
       isUser: false,
     },
     msg: {

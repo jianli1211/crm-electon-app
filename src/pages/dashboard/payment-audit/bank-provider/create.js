@@ -10,6 +10,7 @@ import { paths } from "src/paths";
 import { useAuth } from "src/hooks/use-auth";
 import { usePageView } from "src/hooks/use-page-view";
 import { useRouter } from "src/hooks/use-router";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const Page = () => {
   usePageView();
@@ -38,7 +39,7 @@ const Page = () => {
             xs={12}
             sm={4}
             sx={{
-              backgroundImage: "url(/assets/people-talking.png)",
+              backgroundImage: `url(${getAssetPath("/assets/people-talking.png")})`,
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",

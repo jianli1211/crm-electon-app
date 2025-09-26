@@ -13,35 +13,36 @@ import { useRouter } from "src/hooks/use-router";
 import { paths } from "src/paths";
 import Grid from "@mui/system/Unstable_Grid/Grid";
 import { useSettings } from "src/hooks/use-settings";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const NAME_TO_LOGO_LIGHT = {
-  "cypbx": "/assets/call-system/call-pbx.png",
-  coperato: "/assets/call-system/call-coperato.png",
-  nuvei: "/assets/call-system/call-nuvei.png",
-  perfectMoney: "/assets/call-system/call-perfect-money.png",
-  twilio: "/assets/call-system/call-twilio.png",
-  voiso: "/assets/call-system/call-voiso.png",
-  squaretalk: "/assets/call-system/call-squaretalk.png",
-  commpeak: "/assets/call-system/call-commpeak.png",
-  mmdsmart: "/assets/call-system/call-mmdsmart.svg",
-  "prime_voip": "/assets/call-system/call-prime-light.png",
-  voicespin: "/assets/call-system/call-voicespin.svg",
-  didglobal: "/assets/call-system/call-didglobal.jpg",
+  "cypbx": getAssetPath("/assets/call-system/call-pbx.png"),
+  coperato: getAssetPath("/assets/call-system/call-coperato.png"),
+  nuvei: getAssetPath("/assets/call-system/call-nuvei.png"),
+  perfectMoney: getAssetPath("/assets/call-system/call-perfect-money.png"),
+  twilio: getAssetPath("/assets/call-system/call-twilio.png"),
+  voiso: getAssetPath("/assets/call-system/call-voiso.png"),
+  squaretalk: getAssetPath("/assets/call-system/call-squaretalk.png"),
+  commpeak: getAssetPath("/assets/call-system/call-commpeak.png"),
+  mmdsmart: getAssetPath("/assets/call-system/call-mmdsmart.svg"),
+  "prime_voip": getAssetPath("/assets/call-system/call-prime-light.png"),
+  voicespin: getAssetPath("/assets/call-system/call-voicespin.svg"),
+  didglobal: getAssetPath("/assets/call-system/call-didglobal.jpg"),
 };
 
 const NAME_TO_LOGO_DARK = {
-  "cypbx": "/assets/call-system/call-pbx.png",
-  coperato: "/assets/call-system/call-coperato.png",
-  nuvei: "/assets/call-system/call-nuvei.png",
-  perfectMoney: "/assets/call-system/call-perfect-money.png",
-  twilio: "/assets/call-system/call-twilio.png",
-  voiso: "/assets/call-system/call-voiso.png",
-  squaretalk: "/assets/call-system/call-squaretalk.png",
-  commpeak: "/assets/call-system/call-commpeak.png",
-  mmdsmart: "/assets/call-system/call-mmdsmart-dark.webp",
-  "prime_voip": "/assets/call-system/call-prime.png",
-  voicespin: "/assets/call-system/call-voicespin-light.jpg",
-  didglobal: "/assets/call-system/call-didglobal.jpg",
+  "cypbx": getAssetPath("/assets/call-system/call-pbx.png"),
+  coperato: getAssetPath("/assets/call-system/call-coperato.png"),
+  nuvei: getAssetPath("/assets/call-system/call-nuvei.png"),
+  perfectMoney: getAssetPath("/assets/call-system/call-perfect-money.png"),
+  twilio: getAssetPath("/assets/call-system/call-twilio.png"),
+  voiso: getAssetPath("/assets/call-system/call-voiso.png"),
+  squaretalk: getAssetPath("/assets/call-system/call-squaretalk.png"),
+  commpeak: getAssetPath("/assets/call-system/call-commpeak.png"),
+  mmdsmart: getAssetPath("/assets/call-system/call-mmdsmart-dark.webp"),
+  "prime_voip": getAssetPath("/assets/call-system/call-prime.png"),
+  voicespin: getAssetPath("/assets/call-system/call-voicespin-light.jpg"),
+  didglobal: getAssetPath("/assets/call-system/call-didglobal.jpg"),
 };
 
 export const CallProviderItem = ({ provider, pageInfo }) => {

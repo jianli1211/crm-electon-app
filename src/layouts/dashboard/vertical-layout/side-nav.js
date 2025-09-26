@@ -24,6 +24,7 @@ import { usePathname } from "src/hooks/use-pathname";
 import { usePopover } from "src/hooks/use-popover";
 import { useRouter } from "src/hooks/use-router";
 import { useSettings } from "src/hooks/use-settings";
+import { getAssetPath } from "src/utils/asset-path";
 
 const SIDE_NAV_WIDTH = 280;
 
@@ -315,7 +316,7 @@ export const SideNav = (props) => {
                     style={{ width: 60, height: 60, borderRadius: 6 }}
                   />
                 ) : user?.affiliate ? (
-                  <img src="/assets/logos/logo-link.svg" width={50} />
+                  <img src={getAssetPath("/assets/logos/logo-link.svg")} width={50} />
                 ) : (
                   null
                 )}

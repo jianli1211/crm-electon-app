@@ -11,34 +11,35 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const countries = [
   {
-    flag: '/assets/flags/flag-us.svg',
+    flag: getAssetPath('/assets/flags/flag-us.svg'),
     name: 'United States',
     seo: 40,
     visits: 58200
   },
   {
-    flag: '/assets/flags/flag-es.svg',
+    flag: getAssetPath('/assets/flags/flag-es.svg'),
     name: 'Spain',
     seo: 47,
     visits: 22700
   },
   {
-    flag: '/assets/flags/flag-uk.svg',
+    flag: getAssetPath('/assets/flags/flag-uk.svg'),
     name: 'United Kingdom',
     seo: 65,
     visits: 10360
   },
   {
-    flag: '/assets/flags/flag-de.svg',
+    flag: getAssetPath('/assets/flags/flag-de.svg'),
     name: 'Germany',
     seo: 23,
     visits: 5749
   },
   {
-    flag: '/assets/flags/flag-ca.svg',
+    flag: getAssetPath('/assets/flags/flag-ca.svg'),
     name: 'Canada',
     seo: 45,
     visits: 5432

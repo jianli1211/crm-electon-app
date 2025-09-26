@@ -28,6 +28,7 @@ import { Settings } from "./settings";
 import { brandsApi } from "src/api/lead-management/brand";
 import { DashboardCurrencies } from "./dashboard-currencies";
 import { Iconify } from 'src/components/iconify';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const useSidebar = () => {
   const smUp = useMediaQuery((theme) => theme.breakpoints.up("sm"));
@@ -310,7 +311,7 @@ export const SettingsClientDashboard = () => {
                 >
                   <Box
                     component="img"
-                    src="/assets/errors/error-404.png"
+                    src={getAssetPath("/assets/errors/error-404.png")}
                     sx={{
                       height: "auto",
                       maxWidth: { xs: 80, sm: 100, md: 120 },

@@ -20,6 +20,7 @@ import { TopNavItem } from "./top-nav-item";
 import { usePathname } from "src/hooks/use-pathname";
 import { useSearchParams } from 'src/hooks/use-search-params';
 import { getAPIUrl } from "src/config";
+import { getAssetPath } from "src/utils/asset-path";
 
 const TOP_NAV_HEIGHT = 64;
 
@@ -129,9 +130,9 @@ export const TopNav = () => {
                   }}
                 />
               ) : hostname === "octolit.link" ? (
-                <img src="/assets/logos/logo-link.svg" width={30} />
+                <img src={getAssetPath("/assets/logos/logo-link.svg")} width={30} />
               ) : hostname === "octolit.com" ? (
-                <img src="/assets/logos/new-logo.svg" width={30} />
+                <img src={getAssetPath("/assets/logos/new-logo.svg")} width={30} />
               ) : (
                 <SvgIcon sx={{ height: 24, width: 24 }}>
                   <Logo color={settings?.colorPreset} />

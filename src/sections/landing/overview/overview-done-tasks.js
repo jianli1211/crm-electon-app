@@ -7,6 +7,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 import { Iconify } from 'src/components/iconify';
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const OverviewDoneTasks = ({ amount }) => (
   <Card>
@@ -24,7 +25,7 @@ export const OverviewDoneTasks = ({ amount }) => (
     >
       <div>
         <img
-          src="/assets/iconly/iconly-glass-tick.svg"
+          src={getAssetPath("/assets/iconly/iconly-glass-tick.svg")}
           width={48} />
       </div>
       <Box sx={{ flexGrow: 1 }}>

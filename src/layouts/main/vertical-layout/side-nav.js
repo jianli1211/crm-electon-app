@@ -16,6 +16,7 @@ import { useAuth } from "src/hooks/use-auth";
 import { usePathname } from "src/hooks/use-pathname";
 import { useSelector } from "react-redux";
 import { useSettings } from "src/hooks/use-settings";
+import { getAssetPath } from "src/utils/asset-path";
 
 const SIDE_NAV_WIDTH = 280;
 
@@ -214,7 +215,7 @@ export const SideNav = (props) => {
                   style={{ width: 60, height: 60 }}
                 />
               ) : user?.affiliate ? (
-                <img src="/assets/logos/logo-link.svg" width={50} />
+                <img src={getAssetPath("/assets/logos/logo-link.svg")} width={50} />
               ) : (
                   <Logo color={settings?.colorPreset} />
               )}

@@ -11,6 +11,7 @@ import { EditIcoOffer } from "./edit-ico-offer";
 import { getAPIUrl } from "src/config";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useTimezone } from "src/hooks/use-timezone";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const OfferItem = ({ offer, onOfferOpen, onSetOffer }) => {
   const { toLocalTime } = useTimezone();
@@ -108,7 +109,7 @@ export const Offers = ({ offers, onGetOffers }) => {
       >
         <Box
           component="img"
-          src="/assets/errors/error-404.png"
+          src={getAssetPath("/assets/errors/error-404.png")}
           sx={{
             height: "auto",
             maxWidth: 120,

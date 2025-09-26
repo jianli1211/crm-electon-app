@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const ChatBlank = () => (
   <Box
@@ -14,7 +15,7 @@ export const ChatBlank = () => (
   >
     <Box
       component="img"
-      src="/assets/errors/error-404.png"
+      src={getAssetPath("/assets/errors/error-404.png")}
       sx={{
         height: 'auto',
         maxWidth: 120

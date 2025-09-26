@@ -21,6 +21,7 @@ import { Iconify } from "src/components/iconify";
 import CountryInput from "src/components/customize/country-input";
 import CustomSwitch from "src/components/customize/custom-switch";
 import { brandsApi } from "src/api/lead-management/brand";
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const FileStep = ({ onNext, setFile, formData, headerList = [] }) => {
 
@@ -92,7 +93,7 @@ export const FileStep = ({ onNext, setFile, formData, headerList = [] }) => {
   };
 
   const handleDownload = async () => {
-    const response = await fetch("/assets/others/template.xlsx");
+    const response = await fetch(getAssetPath("/assets/others/template.xlsx"));
     const blob = await response.blob();
     const objectUrl = URL.createObjectURL(blob);
     const link = document.createElement("a");

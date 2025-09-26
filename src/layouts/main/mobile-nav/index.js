@@ -15,6 +15,7 @@ import { getAPIUrl } from "src/config";
 import { paths } from "src/paths";
 import { usePathname } from "src/hooks/use-pathname";
 import { useSettings } from "src/hooks/use-settings";
+import { getAssetPath } from "src/utils/asset-path";
 
 const MOBILE_NAV_WIDTH = 280;
 
@@ -167,9 +168,9 @@ export const MobileNav = (props) => {
                 />
               ) : (
                 hostname === "octolit.link" ? (
-                <img src="/assets/logos/logo-link.svg" width={30} />
+                <img src={getAssetPath("/assets/logos/logo-link.svg")} width={30} />
                 ) : hostname === "octolit.com" ? (
-                  <img src="/assets/logos/new-logo.svg" width={30} />
+                  <img src={getAssetPath("/assets/logos/new-logo.svg")} width={30} />
                 ) : (
                     <Logo color={settings?.colorPreset} />
                 )

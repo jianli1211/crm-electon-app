@@ -118,9 +118,11 @@ export const getBaseApiUrl = () => {
 };
 
 export const getAPIUrl = () => {
-  const currentDomain = window?.location?.hostname;
-  const currentApiUrl = envByDomains?.find((item) => item?.domain === currentDomain)?.api_url ?? process.env.REACT_APP_HOST;
-  return currentApiUrl?.replace(/\/api\/?$/, '');
+  // const currentDomain = window?.location?.hostname;
+  // const currentApiUrl = envByDomains?.find((item) => item?.domain === currentDomain)?.api_url ?? process.env.REACT_APP_HOST;
+  // return currentApiUrl?.replace(/\/api\/?$/, '');
+  const apiUrl = localStorage.getItem("server_url");
+  return apiUrl ?? 'https://api.octolit.com/api'
 };
 
 export const getBaseSocketUrl = () => {

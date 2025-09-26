@@ -11,6 +11,7 @@ import { ContractShowModal } from "./contract-show-modal";
 import { EditContractModal } from "./edit-contract-moda";
 import { getAPIUrl } from "src/config";
 import { SeverityPill } from "src/components/severity-pill";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const ContractItem = ({ contract, onContractOpen, onSetContract }) => {
   return (
@@ -95,7 +96,7 @@ export const CustomerContractsList = ({
       >
         <Box
           component="img"
-          src="/assets/errors/error-404.png"
+          src={getAssetPath("/assets/errors/error-404.png")}
           sx={{
             height: "auto",
             maxWidth: 120,

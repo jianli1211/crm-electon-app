@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import { Iconify } from 'src/components/iconify';
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const FileStep = ({ onNext, setFile, headerList = [] }) => {
   const [headers, setHeaders] = useState();
@@ -59,7 +60,7 @@ export const FileStep = ({ onNext, setFile, headerList = [] }) => {
   };
 
   const handleDownload = async () => {
-    const response = await fetch("/assets/others/download.xlsx");
+    const response = await fetch(getAssetPath("/assets/others/download.xlsx"));
     const blob = await response.blob();
     const objectUrl = URL.createObjectURL(blob);
     const link = document.createElement("a");

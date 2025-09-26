@@ -1,3 +1,5 @@
+import { getAssetPath } from 'src/utils/asset-path';
+
 export const mockedData = {
   leader_sound_enable: true,
   total_deposit: 54320.75,
@@ -235,21 +237,21 @@ export const mockedData = {
       id: 1,
       agent_first_name: "Jane",
       agent_last_name: "Smith",
-      avatar: "/assets/avatars/avatar-alcides-antonio.png",
+      avatar: getAssetPath("/assets/avatars/avatar-alcides-antonio.png"),
       amount: 3500
     },
     {
       id: 2,
       agent_first_name: "John",
       agent_last_name: "Doe",
-      avatar: "/assets/avatars/avatar-marcus-finn.png",
+      avatar: getAssetPath("/assets/avatars/avatar-marcus-finn.png"),
       amount: 4700
     },
     {
       id: 3,
       agent_first_name: "Alice",
       agent_last_name: "Johnson",
-      avatar: "/assets/avatars/avatar-carson-darrin.png",
+      avatar: getAssetPath("/assets/avatars/avatar-carson-darrin.png"),
       amount: 3000
     }
   ],

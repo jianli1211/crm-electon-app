@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const icons = {
   jpeg: '/assets/icons/icon-jpg.svg',
@@ -20,7 +21,7 @@ export const FileIcon = (props) => {
     icon = icons[extension] || '/assets/icons/icon-other.svg';
   }
 
-  return <img src={icon} />;
+  return <img src={getAssetPath(icon)} />;
 };
 
 FileIcon.propTypes = {

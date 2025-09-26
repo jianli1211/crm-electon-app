@@ -5,11 +5,12 @@ import { Document, Page, Text, View, StyleSheet, Image, Font } from "@react-pdf/
 import LoadingButton from '@mui/lab/LoadingButton';
 import { isValidJSON } from "src/utils/function";
 import { useTranslation } from "react-i18next";
+import { getAssetPath } from 'src/utils/asset-path';
 
 // Font Registration
 Font.register({
   family: "Roboto",
-  src: "/assets/fonts/Roboto-Regular.ttf",
+  src: getAssetPath("/assets/fonts/Roboto-Regular.ttf"),
 });
 
 // Styles

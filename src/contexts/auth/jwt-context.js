@@ -285,18 +285,21 @@ export const AuthProvider = (props) => {
       const now = new Date().getTime();
       if ((now - prevLastBeatTime) / 1000 > 3) {
         localStorage.setItem("last_beat_time", new Date().getTime());
-        const res = await settingsApi.updateMember(accountId, {
-          last_beat: true,
-        });
+        const token = localStorage.getItem("token");
+        if (token) {
+          const res = await settingsApi.updateMember(accountId, {
+            last_beat: true,
+          });
 
-        if (res.warning) {
-          setWarning(res.warning);
-          setShowWarning(true);
-          localStorage.setItem("license_warning", "true");
-        } else {
-          setWarning("");
-          setShowWarning(false);
-          localStorage.removeItem("license_warning");
+          if (res.warning) {
+            setWarning(res.warning);
+            setShowWarning(true);
+            localStorage.setItem("license_warning", "true");
+          } else {
+            setWarning("");
+            setShowWarning(false);
+            localStorage.removeItem("license_warning");
+          }
         }
       }
     });

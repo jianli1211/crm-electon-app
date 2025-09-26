@@ -46,6 +46,7 @@ import { SettingsAiQuestion } from "src/components/settings/settings-ai-question
 import { SettingsSecurityReport } from 'src/components/settings/settings-security-report';
 import { AccountEmails } from "src/sections/dashboard/settings/access/account-emails";
 import { Iconify } from 'src/components/iconify';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const useSidebar = () => {
   const mdUp = useMediaQuery((theme) => theme.breakpoints.up("md"));
@@ -417,7 +418,7 @@ const Page = () => {
                             >
                               <Box
                                 component="img"
-                                src="/assets/errors/error-404.png"
+                                src={getAssetPath("/assets/errors/error-404.png")}
                                 sx={{
                                   height: "auto",
                                   maxWidth: 120,

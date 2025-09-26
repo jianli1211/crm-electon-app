@@ -13,10 +13,11 @@ import { ChatMessageAdd } from "../chat/chat-message-add";
 import { ChatMessages } from "../chat/chat-messages";
 import { ChatThreadToolbar } from "./chat-thread-toolbar";
 import { SUPPORTCHATS } from "src/api/mock/_support_chats";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const supportMessages = [{
   author: {
-    avatar: "/assets/avatars/avatar-miron-vitold.png",
+    avatar: getAssetPath("/assets/avatars/avatar-miron-vitold.png"),
     isUser: false,
   },
   msg: {
@@ -29,7 +30,7 @@ const supportMessages = [{
   }
 }, {
   author: {
-    avatar: "/assets/avatars/avatar-anika-visser.png",
+    avatar: getAssetPath("/assets/avatars/avatar-anika-visser.png"),
     isUser: true,
   },
   msg: {

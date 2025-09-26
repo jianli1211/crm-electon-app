@@ -25,18 +25,19 @@ import { DeleteModal } from "src/components/customize/delete-modal";
 import { Iconify } from 'src/components/iconify';
 import { integrationApi } from 'src/api/integration';
 import { PaymentProviderSettings } from '../../../sections/dashboard/integration/payment-system/payment-provider-settings';
+import { getAssetPath } from 'src/utils/asset-path';
 
 const NAME_TO_LOGO = {
-  payretailers: "/assets/icons/payment/payretailers.png",
-  pay_pros: "/assets/icons/payment/pay-pros.png",
-  awesomepayments: "/assets/icons/payment/awp.png",
-  fintech_pay: "/assets/icons/payment/fintech-pay.webp",
-  gateway_pay: "/assets/icons/payment/gateway-pay.jpeg",
-  paycashio: "/assets/icons/payment/paycashio-pay.png",
-  sky_chain: "/assets/icons/payment/skychain-pay.jpeg",
-  simple_psp: "/assets/icons/payment/visa-mastercard.png",
-  atlas24: "/assets/icons/payment/visa-mastercard.png",
-  interio: "/assets/icons/payment/visa-mastercard.png",
+  payretailers: getAssetPath("/assets/icons/payment/payretailers.png"),
+  pay_pros: getAssetPath("/assets/icons/payment/pay-pros.png"),
+  awesomepayments: getAssetPath("/assets/icons/payment/awp.png"),
+  fintech_pay: getAssetPath("/assets/icons/payment/fintech-pay.webp"),
+  gateway_pay: getAssetPath("/assets/icons/payment/gateway-pay.jpeg"),
+  paycashio: getAssetPath("/assets/icons/payment/paycashio-pay.png"),
+  sky_chain: getAssetPath("/assets/icons/payment/skychain-pay.jpeg"),
+  simple_psp: getAssetPath("/assets/icons/payment/visa-mastercard.png"),
+  atlas24: getAssetPath("/assets/icons/payment/visa-mastercard.png"),
+  interio: getAssetPath("/assets/icons/payment/visa-mastercard.png"),
 };
 
 const usePaymentProvider = (id) => {

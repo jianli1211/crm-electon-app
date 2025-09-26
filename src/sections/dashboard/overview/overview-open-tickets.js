@@ -12,6 +12,7 @@ import { customersApi } from 'src/api/customers';
 import { paths } from 'src/paths';
 import { useRouter } from 'src/hooks/use-router';
 import { Iconify } from 'src/components/iconify';
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const OverviewOpenTickets = () => {
   const [amount, setAmount] = useState(0);
@@ -42,7 +43,7 @@ export const OverviewOpenTickets = () => {
       >
         <div>
           <img
-            src="/assets/iconly/iconly-glass-paper.svg"
+            src={getAssetPath("/assets/iconly/iconly-glass-paper.svg")}
             width={48}
           />
         </div>

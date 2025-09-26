@@ -5,6 +5,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Iconify } from 'src/components/iconify';
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const AgentFilter = ({ isDesk, isAffiliate }) => (
   <Stack alignItems="center" sx={{ flexDirection: { md: "row", xs: "column" } }} justifyContent='space-between' px={2} gap={2}>
@@ -16,7 +17,7 @@ export const AgentFilter = ({ isDesk, isAffiliate }) => (
           </Typography>
           <Stack direction='row' alignItems='center' gap={2}>
             <Avatar
-              src={isDesk ? "" : "/assets/avatars/avatar-marcus-finn.png"}
+              src={isDesk ? "" : getAssetPath("/assets/avatars/avatar-marcus-finn.png")}
               sx={{
                 height: 42,
                 width: 42,

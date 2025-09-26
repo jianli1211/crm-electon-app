@@ -8,6 +8,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Iconify } from 'src/components/iconify';
 import { countries } from "src/utils/constant";
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const LandingCustomerKyc = ({ customer }) => (
   <Card>
@@ -59,7 +60,7 @@ export const LandingCustomerKyc = ({ customer }) => (
                 >
                   <Box
                     component="img"
-                    src="/assets/errors/error-404.png"
+                    src={getAssetPath("/assets/errors/error-404.png")}
                     sx={{
                       height: "auto",
                       maxWidth: 120,
@@ -94,7 +95,7 @@ export const LandingCustomerKyc = ({ customer }) => (
                 >
                   <Box
                     component="img"
-                    src="/assets/errors/error-404.png"
+                    src={getAssetPath("/assets/errors/error-404.png")}
                     sx={{
                       height: "auto",
                       maxWidth: 120,
@@ -151,7 +152,7 @@ export const LandingCustomerKyc = ({ customer }) => (
                 >
                   <Box
                     component="img"
-                    src="/assets/errors/error-404.png"
+                    src={getAssetPath("/assets/errors/error-404.png")}
                     sx={{
                       height: "auto",
                       maxWidth: 120,

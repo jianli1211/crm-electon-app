@@ -19,10 +19,11 @@ import { thunks } from "../../../thunks/internal_chat";
 import { useAuth } from "src/hooks/use-auth";
 import { useRouter } from "src/hooks/use-router";
 import { conversationApi } from "src/api/conversation";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const messages = [{
   author: {
-    avatar: "/assets/avatars/avatar-miron-vitold.png",
+    avatar: getAssetPath("/assets/avatars/avatar-miron-vitold.png"),
     isUser: false,
     name: "Miron Vitold"
   },
@@ -36,7 +37,7 @@ const messages = [{
   }
 }, {
   author: {
-    avatar: "/assets/avatars/avatar-anika-visser.png",
+    avatar: getAssetPath("/assets/avatars/avatar-anika-visser.png"),
     isUser: true,
     name: "Me"
   },

@@ -13,6 +13,7 @@ import { customersApi } from 'src/api/customers';
 import { useRouter } from 'src/hooks/use-router';
 import { paths } from 'src/paths';
 import { Iconify } from 'src/components/iconify';
+import { getAssetPath } from 'src/utils/asset-path';
 
 export const OverviewDoneTasks = () => {
   const [amount, setAmount] = useState(0);
@@ -43,7 +44,7 @@ export const OverviewDoneTasks = () => {
       >
         <div>
           <img
-            src="/assets/iconly/iconly-glass-tick.svg"
+            src={getAssetPath("/assets/iconly/iconly-glass-tick.svg")}
             width={48}
           />
         </div>

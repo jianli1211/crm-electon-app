@@ -19,6 +19,7 @@ import { customersApi } from "src/api/customers";
 import { getAPIUrl } from "src/config";
 import { useAuth } from "src/hooks/use-auth";
 import { brandsApi } from "src/api/lead-management/brand";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const useGetBrands = () => {
   const [brands, setBrands] = useState([]);
@@ -280,7 +281,7 @@ export const CustomerKyc = ({ customer, onGetClient }) => {
                         >
                           <Box
                             component="img"
-                            src="/assets/errors/error-404.png"
+                            src={getAssetPath("/assets/errors/error-404.png")}
                             sx={{
                               height: "auto",
                               maxWidth: 120,
@@ -373,7 +374,7 @@ export const CustomerKyc = ({ customer, onGetClient }) => {
                         >
                           <Box
                             component="img"
-                            src="/assets/errors/error-404.png"
+                            src={getAssetPath("/assets/errors/error-404.png")}
                             sx={{
                               height: "auto",
                               maxWidth: 120,

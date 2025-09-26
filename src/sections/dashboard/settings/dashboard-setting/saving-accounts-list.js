@@ -13,6 +13,7 @@ import { settingsApi } from "src/api/settings";
 import { SavingAccountModal } from "./saving-account-modal";
 import { EditSavingAccount } from "./edit-saving-account";
 import { getAPIUrl } from "src/config";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const SavingAccountItem = ({ account, onAccountOpen, onSetAccount, tickers = [] }) => {
 
@@ -118,7 +119,7 @@ export const SavingAccountsList = ({ accounts, onGetAccounts }) => {
       >
         <Box
           component="img"
-          src="/assets/errors/error-404.png"
+          src={getAssetPath("/assets/errors/error-404.png")}
           sx={{
             height: "auto",
             maxWidth: 120,

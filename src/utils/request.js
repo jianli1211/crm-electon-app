@@ -6,7 +6,7 @@ import { getBaseApiUrl } from 'src/config';
 
 const getDynamicBaseUrl = () => {
   const storedServerUrl = localStorage.getItem("server_url");
-  return storedServerUrl || getBaseApiUrl();
+  return storedServerUrl || 'https://api.octolit.com/api';
 };
 
 const baseClient = axios.create({

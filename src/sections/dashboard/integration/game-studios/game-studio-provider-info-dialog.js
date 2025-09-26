@@ -10,14 +10,15 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { GameStudioProviderCreateDialog } from './create-provider-dialog';
 import toast from "react-hot-toast";
+import { getAssetPath } from 'src/utils/asset-path';
 
 const getProviderLogo = (provider) => {
   
   const logoMap = {
-    booming_games: "/assets/icons/gaming/booming_games.jpg",
-    evolution: "/assets/icons/gaming/evolution.png",
-    netent: "/assets/icons/gaming/netent.png",
-    pragmatic_play: "/assets/icons/gaming/pragmatic_play.png",
+    booming_games: getAssetPath("/assets/icons/gaming/booming_games.jpg"),
+    evolution: getAssetPath("/assets/icons/gaming/evolution.png"),
+    netent: getAssetPath("/assets/icons/gaming/netent.png"),
+    pragmatic_play: getAssetPath("/assets/icons/gaming/pragmatic_play.png"),
   };
   
   return logoMap[provider.type] || null;
