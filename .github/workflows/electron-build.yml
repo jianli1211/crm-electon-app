@@ -1,68 +1,45 @@
-name: Build Windows Electron App
+# .github/workflows/windows-build.yml
+name: Windows Build
 
 on:
+  # Trigger on push to main branch
   push:
-    branches: [ main ]
-    tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+    branches: [ main, master ]
+  
+  # Trigger on pull requests to main branch
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
+  
+  # Allow manual trigger from GitHub UI
   workflow_dispatch:
 
 jobs:
-  build:
+  # Windows Electron Build
+  windows-build:
     runs-on: windows-latest
-
+    
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Build React app
-        run: npm run build:prod
-        env:
-          CI: false # Prevents treating warnings as errors
-
-      - name: Build for Windows
-        run: npm run electron:build:win
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload Windows Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: windows-build
-          path: |
-            dist/*.exe
-            dist/latest.yml
-
-  create-release:
-    needs: build
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
-
-    steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: windows-build
-          path: artifacts
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            artifacts/*.exe
-            artifacts/latest.yml
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run linting
+      run: npm run lint
+    
+    - name: Build Electron app for Windows
+      run: npm run electron:build:win
+    
+    - name: Upload Windows build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: windows-electron-build
+        path: dist/
+        retention-days: 30
