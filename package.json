@@ -3,34 +3,25 @@
   "version": "6.3.0",
   "author": "octolit",
   "private": true,
-  "main": "public/electron.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false PUBLIC_URL=./ react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "build:prod": "GENERATE_SOURCEMAP=false INLINE_RUNTIME_CHUNK=false react-scripts build",
     "postbuild": "echo 'Build completed. Consider clearing CDN cache if using one.'",
     "lint": "eslint ./src",
-    "lint-fix": "eslint --fix ./src",
-    "electron:dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron:build": "GENERATE_SOURCEMAP=false PUBLIC_URL=./ react-scripts build && electron-builder",
-    "electron:start": "electron .",
-    "electron:pack": "GENERATE_SOURCEMAP=false PUBLIC_URL=./ react-scripts build && electron-builder --dir",
-    "electron:dist": "GENERATE_SOURCEMAP=false PUBLIC_URL=./ react-scripts build && electron-builder",
-    "electron:dist:win": "GENERATE_SOURCEMAP=false PUBLIC_URL=./ react-scripts build && electron-builder --win",
-    "electron:dist:mac": "GENERATE_SOURCEMAP=false PUBLIC_URL=./ react-scripts build && electron-builder --mac",
-    "electron:dist:linux": "GENERATE_SOURCEMAP=false PUBLIC_URL=./ react-scripts build && electron-builder --linux",
-    "dist": "electron-builder"
+    "electron:build": "GENERATE_SOURCEMAP=false PUBLIC_URL=./ INLINE_RUNTIME_CHUNK=false react-scripts build && electron-builder",
+    "electron:build:win": "GENERATE_SOURCEMAP=false PUBLIC_URL=./ INLINE_RUNTIME_CHUNK=false react-scripts build && electron-builder --win",
+    "electron:build:mac": "GENERATE_SOURCEMAP=false PUBLIC_URL=./ INLINE_RUNTIME_CHUNK=false react-scripts build && electron-builder --mac",
+    "electron:build:linux": "GENERATE_SOURCEMAP=false PUBLIC_URL=./ INLINE_RUNTIME_CHUNK=false react-scripts build && electron-builder --linux",
+    "lint-fix": "eslint --fix ./src"
   },
   "build": {
-    "appId": "com.octolit.crm",
-    "productName": "Octolit CRM",
+    "appId": "com.crm.crm",
+    "productName": "CRM",
     "files": [
       "build/**/*",
       "public/electron.js"
     ],
-    "directories": {
-      "buildResources": "assets"
-    },
     "mac": {
       "target": "dmg"
     },
@@ -149,7 +140,6 @@
     "@types/react-redux": "7.1.25",
     "@types/react-slick": "0.23.10",
     "@types/react-syntax-highlighter": "^15.5.6",
-    "concurrently": "^7.6.0",
     "electron": "^38.1.2",
     "electron-builder": "^26.0.12",
     "eslint": "^7.32.0 || ^8.2.0",
@@ -158,7 +148,6 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "typescript": "4.9.5",
-    "wait-on": "^7.2.0"
+    "typescript": "4.9.5"
   }
 }

@@ -12,6 +12,7 @@ import { authApi } from "src/api/auth";
 import { paths } from "src/paths";
 import { settingsApi } from "src/api/settings";
 import { useRouter } from "src/hooks/use-router";
+import { updateBaseURL } from "src/utils/request";
 
 const STORAGE_KEY = "accessToken";
 
@@ -153,6 +154,11 @@ export const AuthProvider = (props) => {
     try {
       const accessToken = localStorage.getItem("token");
       const accountId = localStorage.getItem("account_id");
+      const serverUrl = localStorage.getItem("server_url");
+
+      if (serverUrl) {
+        updateBaseURL(serverUrl);
+      }
 
       if (accessToken && accountId) {
         dispatch({
@@ -297,29 +303,42 @@ export const AuthProvider = (props) => {
   };
 
   const getCompanies = useCallback(
-    async (email, password) => {
-      const companies = await authApi.getCompanies({ email, password });
+    async (email, password, server_id) => {
+      try {
+        const serverResponse = await authApi.getServerUrl({ server_code: server_id });
+        const server_url = serverResponse.server_url;
+        
+        if (server_url) {
+          localStorage.setItem("server_url", server_url);
+          updateBaseURL(server_url);
+        }
 
-      if (companies?.length < 1) {
-        toast.error("There is no company for this account!");
-        setTimeout(() => {
-          router.push(paths.auth.jwt.login);
-        }, 1500);
-        return;
+        const companies = await authApi.getCompanies({ email, password });
+
+        if (companies?.length < 1) {
+          toast.error("There is no company for this account!");
+          setTimeout(() => {
+            router.push(paths.auth.jwt.login);
+          }, 1500);
+          return;
+        }
+
+        if (companies?.length > 0) {
+          localStorage.setItem("tenants", JSON.stringify(companies));
+        }
+
+        dispatch({
+          type: ActionType.GET_COMPANIES,
+          payload: {
+            companies,
+            email,
+            password,
+          },
+        });
+      } catch (error) {
+        console.error('Error getting server URL or companies:', error);
+        throw error;
       }
-
-      if (companies?.length > 0) {
-        localStorage.setItem("tenants", JSON.stringify(companies));
-      }
-
-      dispatch({
-        type: ActionType.GET_COMPANIES,
-        payload: {
-          companies,
-          email,
-          password,
-        },
-      });
     },
     [dispatch]
   );
@@ -391,6 +410,7 @@ export const AuthProvider = (props) => {
     localStorage.removeItem("chat_account_id");
     localStorage.removeItem("company");
     localStorage.removeItem("tenants");
+    localStorage.removeItem("server_url");
     // localStorage.removeItem("customFieldSetting");
     // localStorage.removeItem("tableSetting");
     localStorage.removeItem("last_beat_time");

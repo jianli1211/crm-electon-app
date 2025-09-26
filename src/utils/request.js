@@ -4,9 +4,18 @@ import { AxiosQueueManager } from 'axios-queue-js';
 import { toast } from 'react-hot-toast';
 import { getBaseApiUrl } from 'src/config';
 
+const getDynamicBaseUrl = () => {
+  const storedServerUrl = localStorage.getItem("server_url");
+  return storedServerUrl || getBaseApiUrl();
+};
+
 const baseClient = axios.create({
-  baseURL: getBaseApiUrl(),
+  baseURL: getDynamicBaseUrl(),
 });
+
+export const updateBaseURL = (newBaseURL) => {
+  baseClient.defaults.baseURL = newBaseURL;
+};
 
 baseClient.interceptors.request.use(
   config => {
@@ -46,6 +55,7 @@ baseClient.interceptors.response.use(
         localStorage.removeItem("account_id");
         localStorage.removeItem("chat_account_id");
         localStorage.removeItem("company");
+        localStorage.removeItem("server_url");
         localStorage.removeItem("last_beat_time");
         console.error('error 401');
       }

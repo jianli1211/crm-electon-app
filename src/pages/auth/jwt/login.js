@@ -25,6 +25,7 @@ import { getAppVersion } from "src/utils/version";
 const initialValues = {
   email: "",
   password: "",
+  server_id: "",
   submit: null,
 };
 
@@ -33,6 +34,7 @@ const validationSchema = Yup.object({
     .max(255)
     .required("Email or User Name is required"),
   password: Yup.string().max(255).required("Password is required"),
+  server_id: Yup.string().required("Server ID is required"),
 });
 
 const Page = () => {
@@ -47,7 +49,7 @@ const Page = () => {
     validationSchema,
     onSubmit: async (values) => {
       try {
-        await getCompanies(values.email, values.password);
+        await getCompanies(values.email, values.password, values.server_id);
 
         if (isMounted()) {
           router.push(paths.auth.jwt.companies);
@@ -83,7 +85,6 @@ const Page = () => {
             <form noValidate onSubmit={formik.handleSubmit}>
               <Stack spacing={3}>
                 <TextField
-                  autoFocus
                   error={!!(formik.touched.email && formik.errors.email)}
                   fullWidth
                   helperText={formik.touched.email && formik.errors.email}
@@ -111,6 +112,17 @@ const Page = () => {
                       </InputAdornment>
                     ),
                   }}
+                />
+                <TextField
+                  autoFocus
+                  error={!!(formik.touched.server_id && formik.errors.server_id)}
+                  fullWidth
+                  helperText={formik.touched.server_id && formik.errors.server_id}
+                  label="Server ID"
+                  name="server_id"
+                  onChange={formik.handleChange}
+                  type="text"
+                  value={formik.values.server_id}
                 />
               </Stack>
               <Button

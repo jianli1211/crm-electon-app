@@ -63,6 +63,11 @@ class AuthApi {
     const response = await apiClient.get("/company/token", { params });
     return response;
   }
+
+  async getServerUrl(request = {}) {
+    const response = await apiClient.post("/company/server_urls", request);
+    return response;
+  }
 }
 
 export const authApi = new AuthApi();
