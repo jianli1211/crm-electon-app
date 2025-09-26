@@ -122,7 +122,7 @@ export const getAPIUrl = () => {
   // const currentApiUrl = envByDomains?.find((item) => item?.domain === currentDomain)?.api_url ?? process.env.REACT_APP_HOST;
   // return currentApiUrl?.replace(/\/api\/?$/, '');
   const apiUrl = localStorage.getItem("server_url");
-  return apiUrl ?? 'https://api.octolit.com/api'
+  return apiUrl?.replace(/\/api\/?$/, '') ?? 'https://api.octolit.com/'
 };
 
 export const getBaseSocketUrl = () => {

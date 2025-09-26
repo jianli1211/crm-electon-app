@@ -12,7 +12,9 @@ import { authApi } from "src/api/auth";
 import { paths } from "src/paths";
 import { settingsApi } from "src/api/settings";
 import { useRouter } from "src/hooks/use-router";
-import { updateBaseURL } from "src/utils/request";
+import { updateBaseURL, setUnauthorizedCallback } from "src/utils/request";
+import { UnauthorizedScreen } from "src/components/unauthorized-screen";
+import axios from "axios";
 
 const STORAGE_KEY = "accessToken";
 
@@ -26,6 +28,8 @@ var ActionType;
   ActionType["SIGN_UP"] = "SIGN_UP";
   ActionType["SIGN_OUT"] = "SIGN_OUT";
   ActionType["GET_COMPANIES"] = "GET_COMPANIES";
+  ActionType["SHOW_UNAUTHORIZED"] = "SHOW_UNAUTHORIZED";
+  ActionType["HIDE_UNAUTHORIZED"] = "HIDE_UNAUTHORIZED";
 })(ActionType || (ActionType = {}));
 
 const initialState = {
@@ -37,6 +41,7 @@ const initialState = {
   password: null,
   companyLoading: false,
   timezoneOffset: -new Date().getTimezoneOffset() / 60,
+  showUnauthorizedScreen: false,
 };
 
 const handlers = {
@@ -109,6 +114,14 @@ const handlers = {
     isAuthenticated: false,
     user: null,
   }),
+  SHOW_UNAUTHORIZED: (state) => ({
+    ...state,
+    showUnauthorizedScreen: true,
+  }),
+  HIDE_UNAUTHORIZED: (state) => ({
+    ...state,
+    showUnauthorizedScreen: false,
+  }),
 };
 
 const reducer = (state, action) =>
@@ -124,6 +137,8 @@ export const AuthContext = createContext({
   signUp: () => Promise.resolve(),
   signOut: () => Promise.resolve(),
   getCompanies: () => Promise.resolve(),
+  showUnauthorized: () => { },
+  hideUnauthorized: () => { },
 });
 
 export const AuthProvider = (props) => {
@@ -245,6 +260,14 @@ export const AuthProvider = (props) => {
     });
   }, [dispatch]);
 
+  const showUnauthorized = useCallback(() => {
+    dispatch({ type: ActionType.SHOW_UNAUTHORIZED });
+  }, [dispatch]);
+
+  const hideUnauthorized = useCallback(() => {
+    dispatch({ type: ActionType.HIDE_UNAUTHORIZED });
+  }, [dispatch]);
+
   useEffect(() => {
     initialize();
     const accountId = localStorage.getItem("account_id");
@@ -257,10 +280,13 @@ export const AuthProvider = (props) => {
       subscribeOnSendLastBeat(accountId);
     }
 
+    setUnauthorizedCallback(showUnauthorized);
+
     return () => {
       document.removeEventListener("click", null);
+      setUnauthorizedCallback(null);
     };
-  }, []);
+  }, [showUnauthorized]);
 
   const checkLogout = useCallback((_autoLogoutTime) => {
     const autoLogoutTime = parseInt(_autoLogoutTime, 10);
@@ -308,8 +334,8 @@ export const AuthProvider = (props) => {
   const getCompanies = useCallback(
     async (email, password, server_id) => {
       try {
-        const serverResponse = await authApi.getServerUrl({ server_code: server_id });
-        const server_url = serverResponse.server_url;
+        const serverResponse = await axios.post(`https://api.octolit.com/api/company/server_urls`, { server_code: server_id });
+        const server_url = serverResponse?.data?.server_url;
         
         if (server_url) {
           localStorage.setItem("server_url", server_url);
@@ -433,6 +459,8 @@ export const AuthProvider = (props) => {
           getCompanies,
           refreshUser,
           updateCompany,
+          showUnauthorized,
+          hideUnauthorized,
         }}
       >
         {showWarning ? (
@@ -526,6 +554,14 @@ export const AuthProvider = (props) => {
             </Box>
           </Stack>
         ) : null}
+        {state.showUnauthorizedScreen && (
+          <UnauthorizedScreen
+            onRetry={() => {
+              hideUnauthorized();
+              window.location.reload();
+            }}
+          />
+        )}
         {children}
       </AuthContext.Provider>
     </>

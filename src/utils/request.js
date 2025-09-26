@@ -2,7 +2,12 @@ import axios from 'axios';
 import { AxiosQueueManager } from 'axios-queue-js';
 
 import { toast } from 'react-hot-toast';
-import { getBaseApiUrl } from 'src/config';
+
+let showUnauthorizedCallback = null;
+
+export const setUnauthorizedCallback = (callback) => {
+  showUnauthorizedCallback = callback;
+};
 
 const getDynamicBaseUrl = () => {
   const storedServerUrl = localStorage.getItem("server_url");
@@ -49,7 +54,6 @@ baseClient.interceptors.response.use(
       console.error('Status code:', error.response.status);
       if (error?.response?.status === 401) {
         toast("Not authenticated!");
-        window.location.replace(window.location.origin + '/auth/login');
         localStorage.removeItem("token");
         localStorage.removeItem("company_id");
         localStorage.removeItem("account_id");
@@ -58,6 +62,12 @@ baseClient.interceptors.response.use(
         localStorage.removeItem("server_url");
         localStorage.removeItem("last_beat_time");
         console.error('error 401');
+        
+        if (showUnauthorizedCallback) {
+          showUnauthorizedCallback();
+        } else {
+          window.location.replace(window.location.origin + '/auth/login');
+        }
       }
     } else if (error.request) {
       console.error('No response received:', error.request);
