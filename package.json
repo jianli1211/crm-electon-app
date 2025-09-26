@@ -86,7 +86,6 @@
     "eslint-config-react-app": "^7.0.1",
     "file-saver": "^2.0.5",
     "formik": "2.2.9",
-    "history": "^5.3.0",
     "i18next": "22.4.15",
     "lodash.debounce": "4.0.8",
     "lodash.isequal": "4.5.0",
