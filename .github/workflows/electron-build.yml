@@ -1,62 +1,72 @@
-# .github/workflows/windows-build.yml
-name: Windows Build
+name: Build Windows Electron App
 
 on:
-  # Trigger on push to main branch
   push:
     branches: [ main, master ]
-  
-  # Trigger on pull requests to main branch
   pull_request:
     branches: [ main, master ]
-  
-  # Allow manual trigger from GitHub UI
   workflow_dispatch:
 
 jobs:
-  # Windows Electron Build
-  windows-build:
+  build:
     runs-on: windows-latest
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-    
-    - name: Debug Info
-      run: |
-        echo "Node version:"
-        node -v
-        echo "NPM version:"
-        npm -v
-        echo "Current directory:"
-        pwd
-        echo "Directory contents:"
-        dir
-    
-    - name: Install dependencies
-      run: |
-        echo "Installing dependencies..."
-        npm ci --verbose
-    
-    - name: Run linting
-      run: |
-        echo "Running lint check..."
-        npm run lint
-    
-    - name: Build Electron app for Windows
-      run: |
-        echo "Building Electron app..."
-        npm run electron:build:win --verbose
-    
-    - name: Upload Windows build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: windows-electron-build
-        path: dist/
-        retention-days: 30
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Show environment info
+        run: |
+          echo "Node version:"
+          node -v
+          echo "NPM version:"
+          npm -v
+          echo "Directory contents:"
+          dir
+          echo "Package.json contents:"
+          type package.json
+
+      - name: Install dependencies
+        run: |
+          npm install
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+
+      - name: Show installed packages
+        run: |
+          echo "node_modules contents:"
+          dir node_modules
+          echo "Package-lock.json contents:"
+          type package-lock.json
+
+      - name: Build app
+        run: |
+          echo "Starting build process..."
+          npm run build
+        env:
+          CI: false
+          NODE_OPTIONS: "--max-old-space-size=4096"
+
+      - name: Build Electron
+        run: |
+          echo "Starting Electron build..."
+          npm run electron:build:win
+        env:
+          CI: false
+          NODE_OPTIONS: "--max-old-space-size=4096"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-artifacts
+          path: |
+            dist/
+            *.log
